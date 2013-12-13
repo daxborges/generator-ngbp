@@ -34,7 +34,7 @@ module.exports = function (grunt) {
     watch: {
       coffee: {
         files: [ '<%%= coffee.tmp.cwd %>/<%%= coffee.tmp.src %>'],
-        tasks: [ 'newer:coffee:tmp' ]
+        tasks: [ 'coffee:tmp' ]
       },
       compass: {
         files: [ '<%%= compass.options.sassDir %>/**/*.{scss,sass}' ],
@@ -42,11 +42,11 @@ module.exports = function (grunt) {
       },
       htmlIncludes: {
         files: [ '<%%= includes.tmp.src %>', 'app/includes/*.html' ],
-        tasks: [ 'newer:includes:tmp' ]
+        tasks: [ 'includes:tmp' ]
       },
       styles: {
         files: [ '<%%= yeoman.app %>/styles/{,*/}*.css' ],
-        tasks: [ 'newer:copy:styles', 'autoprefixer' ]
+        tasks: [ 'copy:styles', 'autoprefixer' ]
       },
       livereload: {
         options: {

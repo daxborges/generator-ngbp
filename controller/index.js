@@ -9,7 +9,6 @@ var MainGenerator = module.exports = function MainGenerator() {
 
 util.inherits(MainGenerator, ScriptBase);
 
-MainGenerator.prototype.createAppFile = function createAppFile() {
-  this.angularModules = this.env.options.angularDeps;
-  this.appTemplate('app', 'app/app/app');
+MainGenerator.prototype.createController = function createController() {
+  this.generateSourceAndTest('controller', 'Ctrl', '', this.destPath, 'controllers');
 };

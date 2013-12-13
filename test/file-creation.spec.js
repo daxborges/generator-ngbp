@@ -3,7 +3,7 @@
 
 var path    = require('path');
 var helpers = require('yeoman-generator').test;
-
+var _       = require('underscore.string');
 
 var appTester = function (gen, config, expected, cb) {
   helpers.mockPrompt(gen, {
@@ -70,5 +70,37 @@ describe('ngbp:app', function () {
 
   it('creates scss files', function (done) {
     appTester(ngbp, { styling: 'scss' }, [ 'app/styles/main.scss' ], done);
+  });
+
+
+  var subGeneratorTester = function (subgen, name, targetDir, scriptNameFn, suffix, done) {
+    var subGenerator = helpers.createGenerator('ngbp:' + subgen, [ '../../' + subgen ], [ name ]);
+    name = name.split('.').pop();
+
+    helpers.mockPrompt(ngbp, {
+      scriptingEngine: 'js',
+      stylingEngine: 'css',
+      modules: []
+    });
+
+    ngbp.run({}, function () {
+      subGenerator.run({}, function () {
+        helpers.assertFiles([
+          [ path.join('app/', targetDir, name + suffix + '.js'), new RegExp(subgen + '\\(\'' + scriptNameFn(name) + suffix + '\'', 'g') ]
+        ]);
+
+        done();
+      });
+    });
+  };
+
+  describe('Controller', function () {
+    it('should generate a common controller', function (done) {
+      subGeneratorTester('controller', 'foo', 'common/controllers', _.camelize, 'Ctrl', done);
+    });
+
+    it('should generate a specific controller within a given module', function (done) {
+      subGeneratorTester('controller', 'bar.foo', 'app/bar', _.camelize, 'Ctrl', done);
+    });
   });
 });

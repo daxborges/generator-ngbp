@@ -38,7 +38,8 @@
     "grunt-newer": "~0.6.0",
     "jshint-stylish": "~0.1.4",
     "load-grunt-tasks": "~0.2.0",
-    "time-grunt": "~0.2.3"
+    "time-grunt": "~0.2.3",
+    "underscore.string": "~2.3.3"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
