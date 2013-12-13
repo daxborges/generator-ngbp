@@ -18,9 +18,11 @@ var appTester = function (gen, config, expected, cb) {
   });
 };
 
-describe('ngbp generator', function () {
+describe('ngbp:app', function () {
+  var ngbp;
 
   beforeEach(function (done) {
+
     helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
       if (err) {
         return done(err);
@@ -28,12 +30,13 @@ describe('ngbp generator', function () {
 
       var deps = [
         '../../app',
+        '../../main',
       ];
 
-      this.app = helpers.createGenerator('ngbp:app', deps);
+      ngbp = helpers.createGenerator('ngbp:app', deps);
 
       // Skip installation of node modules and bower dependencies.
-      this.app.options['skip-install'] = true;
+      ngbp.options['skip-install'] = true;
 
       done();
     }.bind(this));
@@ -58,14 +61,14 @@ describe('ngbp generator', function () {
       'package.json',
     ];
 
-    appTester(this.app, {}, expected, done);
+    appTester(ngbp, {}, expected, done);
   });
 
   it('creates css files', function (done) {
-    appTester(this.app, { styling: 'css' }, [ 'app/styles/main.css' ], done);
+    appTester(ngbp, { styling: 'css' }, [ 'app/styles/main.css' ], done);
   });
 
   it('creates scss files', function (done) {
-    appTester(this.app, { styling: 'scss' }, [ 'app/styles/main.scss' ], done);
+    appTester(ngbp, { styling: 'scss' }, [ 'app/styles/main.scss' ], done);
   });
 });

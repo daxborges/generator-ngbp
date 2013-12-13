@@ -33,6 +33,7 @@ var NgbpGenerator = module.exports = function NgbpGenerator(args, options) {
    * Call subgenerators after running the generator.
    */
   args = [ this.appname ];
+  this.hookFor('ngbp:main', { args: args });
 
   /**
    * After running the generator, install the dependencies if the user
