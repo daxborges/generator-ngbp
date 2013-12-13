@@ -1,0 +1,55 @@
+{
+  "name": "generator-ngbp",
+  "version": "0.0.0",
+  "description": "Generates a file structure for large AngularJS applications based on the ng-boilerplate project.",
+  "keywords": [
+    "yeoman-generator",
+    "angular",
+    "scalable",
+    "large angular",
+    "ng-boilerplate"
+  ],
+  "homepage": "https://github.com/kevin-wolf/generator-ngbp",
+  "bugs": "https://github.com/kevin-wolf/generator-ngbp/issues",
+  "author": {
+    "name": "KevinWolf",
+    "email": "hi@kevinwolf.me",
+    "url": "https://github.com/kevin-wolf"
+  },
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kevin-wolf/generator-ngbp.git"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "yeoman-generator": "~0.14.0",
+    "chalk": "~0.3.0",
+    "wiredep": "~0.4.2"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-cafe-mocha": "~0.1.10",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-watch": "~0.5.2",
+    "grunt-conventional-changelog": "~1.0.0",
+    "grunt-newer": "~0.6.0",
+    "jshint-stylish": "~0.1.4",
+    "load-grunt-tasks": "~0.2.0",
+    "time-grunt": "~0.2.3"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}

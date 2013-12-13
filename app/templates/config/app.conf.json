@@ -1,0 +1,7 @@
+{
+  "name": "<%= appname %>",
+  "engines": {
+    "scripting": "<%= prompts.engines.scriptingEngine %>",
+    "styling": "<%= prompts.engines.stylingEngine %>"
+  }
+}

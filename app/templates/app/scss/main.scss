@@ -1,0 +1,10 @@
+// Modules declaration.
+// endmodules.
+
+$page-background : #ccc;
+$page-foreground : #333;
+
+body {
+  background-color : $page-background;
+  color            : $page-foreground;
+}
